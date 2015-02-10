@@ -6,10 +6,20 @@ announced by the given system.
 It is based on the library created by RIPE called bgpdump and SiLK, created by 
 CERT.  
 
-bgpuma understands the directory structure set up by both RIPE and Routeviews
-for storing BGP Updates.  If you give it the --dir=DIR flag, it expects that
-the directory given contains one directory for each router.  The subdirectories
-within the router directories are then either:
+Flags:
+
+--verbose           Prints extra output
+--cidrfile=FILE     File containing the CIDR blocks to look for
+--asnfile=FILE      File containing the Autonomous System Numbers to look for
+--or                By default, if both --cidrfile and --asnfile are given, bgpuma looks for matches that satisfy both lists.  This flag turns that match into an or.
+--update=FILE       The BGP Update file that is searched
+--startdate=YYYYMMDD
+--enddate=YYYYMMDD  The startdate and enddate flags go together.  This gives a date range to search the BGP Update files.  See the README for more information about the required directory stucture
+--dir=DIR           The directory containing the Update files used in the date range examination
+--outfile=FILE      The output file for the results.  By default it goes to standard out.
+--file=FILE         A file contaning a list of files to search in
+
+For the --dir flag, bgpuma understands the directory structure set up by both RIPE and Routeviews for storing BGP Updates.  It expects that the directory given contains one directory for each router.  The subdirectories within the router directories are then either:
 
 bgpdata/YEAR.MONTH/UPDATES/
 
@@ -19,3 +29,5 @@ YEAR.MONTH/
 
 It is also expected that the updates have the string 'update' in the file name.
 
+
+On the other hand, you can use the --file=FILE flag and give bgpuma a list of files to read.
