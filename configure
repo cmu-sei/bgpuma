@@ -4094,6 +4094,10 @@ _ACEOF
 
   LIBS="-lbgpdump $LIBS"
 
+else
+  { { $as_echo "$as_me:$LINENO: error: Unable to find libbgpdump" >&5
+$as_echo "$as_me: error: Unable to find libbgpdump" >&2;}
+   { (exit 1); exit 1; }; }
 fi
 
 

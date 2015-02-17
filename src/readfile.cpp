@@ -96,13 +96,13 @@ void show_prefixes(int count,struct prefix *prefix,BGPDATA BGP,BGPDUMP_ENTRY *en
 
 	if (prefix[i].len == 0) continue;
         sprintf(cidr,"%s/%d",inet_ntoa(prefix[i].address.v4_addr),prefix[i].len);
-	if (entry->attr->aspath != NULL && BGP.asnfile.length()) {
+	if (entry->attr->aspath != NULL && !BGP.asnfile.empty()) {
 		arv = ValidatePath(entry->attr->aspath->str,BGP);
 	}
 	else if (entry->attr->aspath != NULL) {
 		arv = 1;
 	}
-	if (BGP.setfile.length()) {
+	if (!BGP.setfile.empty()) {
 		srv = ValidateSet(cidr,BGP);
 	}
 	else {
@@ -128,13 +128,13 @@ void show_prefixes6(int count,struct prefix *prefix,BGPDATA BGP,BGPDUMP_ENTRY *e
 		int arv = 0;
 		int srv = 0;
 	        sprintf(cidr,"%s/%d",inet_ntop(AF_INET6,&prefix[i].address.v6_addr,buf,128),prefix[i].len);
-		if (entry->attr->aspath != NULL && BGP.asnfile.length()) {
+		if (entry->attr->aspath != NULL && !BGP.asnfile.empty()) {
 			arv = ValidatePath(entry->attr->aspath->str,BGP);
 		}
 		else if (entry->attr->aspath != NULL) {
 			arv = 1;
 		}
-		if (BGP.setfile.length()) {
+		if (!BGP.setfile.empty()) {
 			srv = ValidateSet(cidr,BGP);
 		}
 		else {

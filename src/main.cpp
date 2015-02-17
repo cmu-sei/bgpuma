@@ -62,18 +62,18 @@ int main (int argc, char* argv[])
 
 	std::ofstream myFile;
 
-	if(BGP.outfile.length()) {
+	if(BGP.outfile.empty()) {
 		myFile.open(BGP.outfile.c_str(), std::ios::out);
 	}
 
-	std::ofstream &outFile = (BGP.outfile.length() ? myFile : (std::ofstream&)cout);
+	std::ofstream &outFile = (BGP.outfile.empty() ? (std::ofstream&)cout : outFile);
 
-	if (BGP.setfile.length()) {
+	if (!BGP.setfile.empty()) {
 		skipset_t *ipset = NULL;
 		ReadFile(BGP.setfile,&ipset);
 		BGP.ipset = ipset;
 	}
-	if (BGP.asnfile.length()) {
+	if (!BGP.asnfile.empty()) {
 		ReadASNFile(BGP);
 	}
 	if (BGP.bgpfile.size() > 0) {
@@ -81,16 +81,16 @@ int main (int argc, char* argv[])
 		for (it = BGP.bgpfile.begin(); it != BGP.bgpfile.end(); it++) {
 			ReadBGPFile(BGP,*it,outFile);
 		}
-		if (BGP.outfile.length()) {
+		if (!BGP.outfile.empty()) {
 			outFile.close();
 		}
 		exit(1);
 	}
-	if (BGP.file.length()) {
+	if (!BGP.file.empty()) {
 		ProcessFiles(BGP,outFile);
 		exit(1);
 	}
-	if (!BGP.startdate.length() || !BGP.enddate.length() || !BGP.dir.size()) {
+	if (BGP.startdate.empty() || BGP.enddate.empty() || BGP.dir.empty()) {
 		print_help();
 		exit(1);
 	}
@@ -102,7 +102,7 @@ int main (int argc, char* argv[])
 		nextdate = NextDate(nextdate);
 	}
 	Traverse(BGP,BGP.enddate,outFile);
-	if (BGP.outfile.length()) {
+	if (!BGP.outfile.empty()) {
 		outFile.close();
 	}
 
