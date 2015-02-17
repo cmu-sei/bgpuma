@@ -16,7 +16,7 @@ AC_PROG_CXX
 AC_PROG_CC
 
 # Checks for libraries.
-AC_CHECK_LIB([bgpdump],[bgpdump_open_dump])
+AC_CHECK_LIB([bgpdump],[bgpdump_open_dump],[], AC_MSG_ERROR([Unable to find libbgpdump]))
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdlib.h string.h sys/socket.h sys/time.h unistd.h])
