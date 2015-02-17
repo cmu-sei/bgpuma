@@ -6,6 +6,9 @@ announced by the given system.
 It is based on the library created by RIPE called bgpdump and SiLK, created by 
 CERT.  
 
+bgpdump is available from https://bitbucket.org/ripencc/bgpdump/wiki/Home
+SiLK is available from http://tools.netsa.cert.org/silk/index.html 
+
 Flags:
 
 --verbose           Prints extra output
@@ -14,7 +17,7 @@ Flags:
 --or                By default, if both --cidrfile and --asnfile are given, bgpuma looks for matches that satisfy both lists.  This flag turns that match into an or.
 --update=FILE       The BGP Update file that is searched
 --startdate=YYYYMMDD
---enddate=YYYYMMDD  The startdate and enddate flags go together.  This gives a date range to search the BGP Update files.  See the README for more information about the required directory stucture
+--enddate=YYYYMMDD  The startdate and enddate flags go together.  This gives a date range to search the BGP Update files.  
 --dir=DIR           The directory containing the Update files used in the date range examination
 --outfile=FILE      The output file for the results.  By default it goes to standard out.
 --file=FILE         A file contaning a list of files to search in
@@ -28,6 +31,5 @@ OR
 YEAR.MONTH/
 
 It is also expected that the updates have the string 'update' in the file name.
-
 
 On the other hand, you can use the --file=FILE flag and give bgpuma a list of files to read.
