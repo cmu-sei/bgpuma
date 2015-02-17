@@ -14,8 +14,6 @@
 #include <silk/utils.h>
 #include <silk/skipset.h>
 
-#include "utils.h"
-
 using namespace std;
 
 void ReadFile(string filename,skipset_t **ipset);

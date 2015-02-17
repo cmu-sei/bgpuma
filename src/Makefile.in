@@ -49,7 +49,7 @@ PROGRAMS = $(bin_PROGRAMS)
 am_bgpuma_OBJECTS = cidrutils.$(OBJEXT) data.$(OBJEXT) dir.$(OBJEXT) \
 	readasnfile.$(OBJEXT) readfile.$(OBJEXT) createset.$(OBJEXT) \
 	dates.$(OBJEXT) main.$(OBJEXT) readdir.$(OBJEXT) \
-	readfiles.$(OBJEXT) utils.$(OBJEXT)
+	readfiles.$(OBJEXT)
 bgpuma_OBJECTS = $(am_bgpuma_OBJECTS)
 bgpuma_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
@@ -159,7 +159,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
-bgpuma_SOURCES = cidrutils.cpp data.cpp dir.cpp readasnfile.cpp readfile.cpp createset.cpp dates.cpp main.cpp readdir.cpp readfiles.cpp utils.cpp
+bgpuma_SOURCES = cidrutils.cpp data.cpp dir.cpp readasnfile.cpp readfile.cpp createset.cpp dates.cpp main.cpp readdir.cpp readfiles.cpp 
 all: all-am
 
 .SUFFIXES:
@@ -251,7 +251,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/readdir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/readfile.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/readfiles.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/utils.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
