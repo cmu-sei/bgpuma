@@ -80,7 +80,6 @@ void Traverse(BGPDATA BGP,  string pattern, std::ofstream &outFile )
 		}
 	}
 	
-//	cerr << "Number of Files:  " << FileNames.size() << "\n";
 	sort(FileNames.begin(), FileNames.end(), substrcmp);
 	string meta = "meta";
 	string update = "updates";
