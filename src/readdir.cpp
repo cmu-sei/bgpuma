@@ -72,7 +72,7 @@ void Traverse(BGPDATA BGP,  string pattern, std::ofstream &outFile )
 			string dirname = *it+"/bgpdata/"+Year+"."+Month+"/UPDATES";
 			if (!skDirExists(dirname.c_str())) { 
 				dirname = *it+"/"+Year+"."+Month+"/";
-				if (!!skDirExists(dirname.c_str())) continue;
+				if (!skDirExists(dirname.c_str())) continue;
 			}
 			StringVector files;
 			files = GetFiles(dirname,pattern);
