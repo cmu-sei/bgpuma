@@ -9,7 +9,6 @@
 using namespace std;
 
 #include "readfile.h"
-#include "dir.h"
 #include "dates.h"
 #include "data.h"
 

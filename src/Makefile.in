@@ -46,7 +46,7 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_bgpuma_OBJECTS = cidrutils.$(OBJEXT) data.$(OBJEXT) dir.$(OBJEXT) \
+am_bgpuma_OBJECTS = cidrutils.$(OBJEXT) data.$(OBJEXT) \
 	readasnfile.$(OBJEXT) readfile.$(OBJEXT) createset.$(OBJEXT) \
 	dates.$(OBJEXT) main.$(OBJEXT) readdir.$(OBJEXT) \
 	readfiles.$(OBJEXT)
@@ -159,7 +159,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
-bgpuma_SOURCES = cidrutils.cpp data.cpp dir.cpp readasnfile.cpp readfile.cpp createset.cpp dates.cpp main.cpp readdir.cpp readfiles.cpp 
+bgpuma_SOURCES = cidrutils.cpp data.cpp readasnfile.cpp readfile.cpp createset.cpp dates.cpp main.cpp readdir.cpp readfiles.cpp 
 all: all-am
 
 .SUFFIXES:
@@ -245,7 +245,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/createset.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/data.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dates.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dir.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/readasnfile.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/readdir.Po@am__quote@
