@@ -114,11 +114,11 @@ void print_help()
 	cout << "--verbose           Prints extra output\n";
 	cout << "--cidrfile=FILE     File containing the CIDR blocks to look for\n";
 	cout << "--asnfile=FILE      File containing the Autonomous System Numbers to look for\n";
-	cout << "--or                By default, if both --cidrfile and --asnfile are given, bgpuma looks for matches that satisfy both lists.  This flag turns that match into an or.\n";
+	cout << "--or                By default, if both --cidrfile and --asnfile are given, \n                    bgpuma looks for matches that satisfy both lists. \n                    This flag turns that match into an or.\n";
 	cout << "--update=FILE       The BGP Update file that is searched\n";
 	cout << "--startdate=YYYYMMDD\n";
-	cout << "--enddate=YYYYMMDD  The startdate and enddate flags go together.  This gives a date range to search the BGP Update files.  See the README for more information about the required directory stucture\n";
-	cout << "--dir=DIR           The directory containing the Update files used in the date range examination\n";
-	cout << "--outfile=FILE      The output file for the results.  By default it goes to standard out.\n";
-	cout << "--file=FILE         A file contaning a list of files to search in\n";
+	cout << "--enddate=YYYYMMDD  The startdate and enddate flags go together.\n                    This gives a date range to search the BGP Update files.\n                    See the README for more information about the required \n                    directory stucture\n";
+	cout << "--dir=DIR           The directory containing the Update files used in the date\n                    range examination\n";
+	cout << "--outfile=FILE      The output file for the results.  By default\n                    it goes to standard out.\n";
+	cout << "--file=FILE         A file containing a list of files to search in\n";
 }
