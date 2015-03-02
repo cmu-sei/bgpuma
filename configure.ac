@@ -5,7 +5,7 @@ AC_PREREQ([2.63])
 AC_INIT([bgpuma], [1.0], [lbmetcalf@cert.org])
 AC_CONFIG_SRCDIR([src/cidrutils.cpp])
 AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_FILES([Makefile src/Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE
