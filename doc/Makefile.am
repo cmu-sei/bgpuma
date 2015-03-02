@@ -1,0 +1,3 @@
+man_MANS = bgpuma.1
+EXTRA_DIST = $(man_MANS)
+MAINTAINERCLEANFILES = $(man_MANS)
