@@ -10,8 +10,7 @@ string NextDate( string date )
 		epoch = mktime(&tm);
 	}
 	else  {
-		cout << "No worky \n";
-		cout << date << "\n";
+		cout << "Can not parse:  " << date << "\n";
 		exit(-1);
 	}
 
