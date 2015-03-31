@@ -62,11 +62,11 @@ int main (int argc, char* argv[])
 
 	std::ofstream myFile;
 
-	if(BGP.outfile.empty()) {
+	if(!BGP.outfile.empty()) {
 		myFile.open(BGP.outfile.c_str(), std::ios::out);
 	}
 
-	std::ofstream &outFile = (BGP.outfile.empty() ? (std::ofstream&)cout : outFile);
+	std::ofstream &outFile = (BGP.outfile.empty() ? (std::ofstream&)cout : myFile);
 
 	if (!BGP.setfile.empty()) {
 		skipset_t *ipset = NULL;
