@@ -1,3 +1,3 @@
 AUTOMAKE_OPTIONS = foreign
 bin_PROGRAMS = bgpuma
-bgpuma_SOURCES = cidrutils.cpp data.cpp readasnfile.cpp readfile.cpp createset.cpp dates.cpp main.cpp readdir.cpp readfiles.cpp 
+bgpuma_SOURCES = cidrutils.cpp cidrutils.h data.cpp data.h readasnfile.cpp readasnfile.h readfile.cpp readfile.h createset.cpp createset.h dates.cpp dates.h main.cpp main.h readdir.cpp readdir.h readfiles.cpp readfiles.h
