@@ -1,28 +1,51 @@
+ABOUT
 
-bgpuma is a program for searching BGP update files created by MRT or Zebra/Quagga for CIDR blocks and/or Autonomous Systems.  Given a list of CIDR blocks, it 
-looks for those CIDR blocks which match the list, are contained in the list, or are contained by the list.  For Autonomous Systems, it looks for routes that are
-announced by the given system.  
+bgpuma is a program for searching BGP update files created by MRT or 
+Zebra/Quagga for CIDR blocks and/or Autonomous Systems.  Given a list of CIDR 
+blocks, it looks for those CIDR blocks which match the list, are contained 
+in the list, or are contained by the list.  For Autonomous Systems, it looks 
+for routes that are announced by the given system.  
 
-It is based on the library created by RIPE called bgpdump and SiLK, created by 
-CERT.  
+It is based on the library created by RIPE called bgpdump and SiLK, created 
+by CERT.  
 
-bgpdump is available from https://bitbucket.org/ripencc/bgpdump/wiki/Home
-SiLK is available from http://tools.netsa.cert.org/silk/index.html 
+BUILDING
+
+bgpuma has an external dependency on the bgpdump library.  It can be found
+at https://bitbucket.org/ripencc/bgpdump/wiki/Home
+
+It also depends on the SiLK library.  SiLK can be found at 
+http://tools.netsa.cert.org/silk/index.html 
+
+Build using:
+./configure
+make
+make install
+
+RUNNING
 
 Flags:
 
 --verbose           Prints extra output
 --cidrfile=FILE     File containing the CIDR blocks to look for
 --asnfile=FILE      File containing the Autonomous System Numbers to look for
---or                By default, if both --cidrfile and --asnfile are given, bgpuma looks for matches that satisfy both lists.  This flag turns that match into an or.
+--or                By default, if both --cidrfile and --asnfile are given, 
+		    bgpuma looks for matches that satisfy both lists.  This 
+	            flag turns that match into an or.
 --update=FILE       The BGP Update file that is searched
 --startdate=YYYYMMDD
---enddate=YYYYMMDD  The startdate and enddate flags go together.  This gives a date range to search the BGP Update files.  
---dir=DIR           The directory containing the Update files used in the date range examination
---outfile=FILE      The output file for the results.  By default it goes to standard out.
+--enddate=YYYYMMDD  The startdate and enddate flags go together.  This gives 
+		    a date range to search the BGP Update files.  
+--dir=DIR           The directory containing the Update files used in the 
+		    date range examination
+--outfile=FILE      The output file for the results.  By default it goes to 
+                    standard out.
 --file=FILE         A file contaning a list of files to search in
 
-For the --dir flag, bgpuma understands the directory structure set up by both RIPE and Routeviews for storing BGP Updates.  It expects that the directory given contains one directory for each router.  The subdirectories within the router directories are then either:
+For the --dir flag, bgpuma understands the directory structure set up by both 
+RIPE and Routeviews for storing BGP Updates.  It expects that the directory 
+given contains one directory for each router.  The subdirectories within 
+the router directories are then either:
 
 bgpdata/YEAR.MONTH/UPDATES/
 
@@ -32,4 +55,8 @@ YEAR.MONTH/
 
 It is also expected that the updates have the string 'update' in the file name.
 
-On the other hand, you can use the --file=FILE flag and give bgpuma a list of files to read.
+On the other hand, you can use the --file=FILE flag and give bgpuma a list of 
+files to read.
+
+
+
