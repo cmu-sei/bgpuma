@@ -20,7 +20,7 @@ AC_CHECK_LIB([bgpdump],[bgpdump_open_dump],[], AC_MSG_ERROR([Unable to find libb
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdlib.h string.h sys/socket.h sys/time.h unistd.h])
-AC_CHECK_HEADER([bgpdump/bgpdump_lib.h])
+AC_CHECK_HEADER([bgpdump_lib.h],[], AC_MSG_ERROR([Unable to find libbgpdump headers]))
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_STDBOOL
