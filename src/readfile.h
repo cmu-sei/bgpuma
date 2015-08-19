@@ -15,7 +15,7 @@
 #include "data.h"
 
 extern "C"{
-#include <bgpdump/bgpdump_lib.h>
+#include <bgpdump_lib.h>
 }
 
 using namespace std;

@@ -95,8 +95,16 @@ int main (int argc, char* argv[])
 		exit(1);
 	}
 
+	if (BGP.startdate.length() != 8 || BGP.enddate.length() != 8) {
+		cout << "The date format is YYYYMMDD and should be of length 8\n";
+		exit(1);
+	}
+	if (!is_digits(BGP.startdate) || !is_digits(BGP.enddate)) {
+		cout << "The date format is YYYYMMDD and should be all integers\n";
+		exit(1);
+	}
 	if (BGP.startdate >= BGP.enddate) {
-		cout << "Start date must come before end date\n";
+		cout << "Start date must come before end date.\n";
 		print_help();
 		exit(1);
 	}
@@ -127,4 +135,9 @@ void print_help()
 	cout << "--dir=DIR           The directory containing the Update files used in the date\n                    range examination\n";
 	cout << "--outfile=FILE      The output file for the results.  By default\n                    it goes to standard out.\n";
 	cout << "--file=FILE         A file containing a list of files to search in\n";
+}
+
+bool is_digits(const std::string &str)
+{
+    return std::all_of(str.begin(), str.end(), ::isdigit); // C++11
 }

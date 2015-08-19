@@ -24,3 +24,4 @@
 using namespace std;
 
 void print_help();
+bool is_digits(const std::string &str);
