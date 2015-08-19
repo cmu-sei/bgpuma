@@ -94,6 +94,12 @@ int main (int argc, char* argv[])
 		print_help();
 		exit(1);
 	}
+
+	if (BGP.startdate >= BGP.enddate) {
+		cout << "Start date must come before end date\n";
+		print_help();
+		exit(1);
+	}
 	Traverse(BGP,BGP.startdate,outFile);
 	if (BGP.enddate.compare(BGP.startdate) == 0) { exit(1); }
 	string nextdate = NextDate(BGP.startdate);

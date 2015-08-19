@@ -61,6 +61,10 @@ CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 CXXLD = $(CXX)
 CXXLINK = $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) \
 	-o $@
+COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 SOURCES = $(bgpuma_SOURCES)
 DIST_SOURCES = $(bgpuma_SOURCES)
 ETAGS = etags
@@ -159,7 +163,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
-bgpuma_SOURCES = cidrutils.cpp data.cpp readasnfile.cpp readfile.cpp createset.cpp dates.cpp main.cpp readdir.cpp readfiles.cpp 
+bgpuma_SOURCES = cidrutils.cpp cidrutils.h data.cpp data.h readasnfile.cpp readasnfile.h readfile.cpp readfile.h createset.cpp createset.h dates.cpp dates.h main.cpp main.h readdir.cpp readdir.h readfiles.cpp readfiles.h
 all: all-am
 
 .SUFFIXES:
