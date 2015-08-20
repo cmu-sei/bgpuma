@@ -65,6 +65,9 @@ void Traverse(BGPDATA BGP,  string pattern, std::ofstream &outFile )
 	string Month = getMonth(pattern);
 	vector<string>::iterator it, dit;
 
+	if (BGP.verbose) {
+		cerr << "Building list of files...\n";
+	}
 	for (dit = BGP.dir.begin(); dit != BGP.dir.end(); dit++) {
 		StringVector Directories;
 		Directories = GetFiles(*dit);
