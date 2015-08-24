@@ -139,5 +139,5 @@ void print_help()
 
 bool is_digits(const std::string &str)
 {
-    return std::all_of(str.begin(), str.end(), ::isdigit); // C++11
+	return str.find_first_not_of("0123456789") == std::string::npos;
 }
