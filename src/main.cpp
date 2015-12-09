@@ -116,7 +116,7 @@ int main (int argc, char* argv[])
 		cout << "The date format is YYYYMMDD and should be all integers\n";
 		exit(1);
 	}
-	if (BGP.startdate >= BGP.enddate) {
+	if (BGP.startdate > BGP.enddate) {
 		cout << "Start date must come before end date.\n";
 		print_help();
 		exit(1);

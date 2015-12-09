@@ -182,19 +182,12 @@ AC_DEFUN([AC_OPT_WITH_SILK],[
             LDFLAGS="$SILK_LDFLAGS $LDFLAGS"
         fi
         
-        AC_CHECK_LIB([silk], [skAppRegister], [test 1 = 1],
-            [AC_MSG_FAILURE([cannot find SiLK library -lsilk])],
-            [$silk_ldflags])
-        AC_CHECK_LIB([silk-thrd], [skPollDirCreate], [test 1 = 1],
-            [AC_MSG_FAILURE([cannot find SiLK library -lsilk-thrd])],
-            [-lsilk $silk_ldflags])
+	AC_CHECK_LIB([silk], [skAppRegister], [test 1 = 1],
+	    [AC_MSG_FAILURE([cannot find SiLK library -lsilk])],
+	    [$silk_ldflags])
 
-        have_hashlib=
-        AC_CHECK_LIB([hash], [hashlib_create_table], [have_hashlib=-lhash], ,
-            [-lsilk $silk_ldflags])
-
-        LDFLAGS="$cache_LDFLAGS"
-        SILK_LDFLAGS="$SILK_LDFLAGS $have_hashlib -lsilk-thrd -lsilk $silk_ldflags"
+	LDFLAGS="$cache_LDFLAGS"
+	SILK_LDFLAGS="$SILK_LDFLAGS -lsilk $silk_ldflags"
 
         LIBS="$SILK_LDFLAGS $LIBS"
     fi
@@ -219,9 +212,8 @@ skAppUnregister();
         AC_MSG_FAILURE([error using SiLK headers or libraries])])
 
     # Check for features that vary with version of SiLK
-    AC_CHECK_FUNCS([skOptionsSetVersionCallback skPollDirQueueCreate skPollDirSetFileTimeout skStringParseTCPState skTCPStateString])
-
-    AC_PATH_PROGS(RWTUC, rwtuc, , [$mod_path])
+     AC_CHECK_FUNC([skipaddrV6toV4], , [AC_MSG_ERROR([SiLK was not built with IPv6 support])])
+#    AC_PATH_PROGS(RWTUC, rwtuc, , [$mod_path])
 
 ])# AC_OPT_WITH_SILK
 
